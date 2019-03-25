@@ -2,8 +2,7 @@ package com.medestin;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class MainTestSuite {
 
@@ -20,5 +19,6 @@ public class MainTestSuite {
     @Test
     public void testEquality(){
         assertTrue(new Dollar(5).equals(new Dollar(5)));
+        assertFalse(new Dollar(5).equals(new Dollar(6)));
     }
 }
