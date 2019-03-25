@@ -1,7 +1,6 @@
 package com.medestin;
 
-public class Dollar {
-    private int amount;
+public class Dollar extends Money {
 
     public Dollar(int amount){
         this.amount = amount;
