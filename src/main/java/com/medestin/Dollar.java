@@ -1,13 +1,13 @@
 package com.medestin;
 
 public class Dollar extends Money {
-    private String currency = "USD";
 
-    public Dollar(int amount){
+    public Dollar(int amount, String currency){
         this.amount = amount;
+        this.currency = currency;
     }
 
     Money times(int multiplier){
-        return new Dollar(amount*multiplier);
+        return Money.dollar(amount*multiplier);
     }
 }
