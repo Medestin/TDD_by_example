@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class MainTestSuite {
 
     @Test
-    public void testMultiplication(){
+    public void testMultiplication() {
         Money five = Money.dollar(5);
 
         assertEquals(Money.dollar(10), five.times(2));
@@ -15,20 +15,20 @@ public class MainTestSuite {
     }
 
     @Test
-    public void testEquality(){
+    public void testEquality() {
         assertTrue(Money.dollar(5).equals(Money.dollar(5)));
         assertFalse(Money.dollar(5).equals(Money.dollar(6)));
         assertFalse(Money.franc(5).equals(Money.dollar(5)));
     }
 
     @Test
-    public void testCurrency(){
+    public void testCurrency() {
         assertEquals("USD", Money.dollar(1).currency());
         assertEquals("CHF", Money.franc(1).currency());
     }
 
     @Test
-    public void testSimpleAddition(){
+    public void testSimpleAddition() {
         Money five = Money.dollar(5);
         Expression sum = five.plus(five);
         Bank bank = new Bank();
@@ -39,7 +39,7 @@ public class MainTestSuite {
     }
 
     @Test
-    public void testPlusReturnsSum(){
+    public void testPlusReturnsSum() {
         Money five = Money.dollar(5);
         Expression result = five.plus(five);
         Sum sum = (Sum) result;
@@ -48,7 +48,7 @@ public class MainTestSuite {
     }
 
     @Test
-    public void testReduceSum(){
+    public void testReduceSum() {
         Expression sum = new Sum(Money.dollar(3), Money.dollar(4));
         Bank bank = new Bank();
         Money result = bank.reduce(sum, "USD");
@@ -56,17 +56,22 @@ public class MainTestSuite {
     }
 
     @Test
-    public void testReduceMoney(){
+    public void testReduceMoney() {
         Bank bank = new Bank();
         Money result = bank.reduce(Money.dollar(1), "USD");
         assertEquals(Money.dollar(1), result);
     }
 
     @Test
-    public void testReduceMoneyDifferentCurrency(){
+    public void testReduceMoneyDifferentCurrency() {
         Bank bank = new Bank();
         bank.addRate("CHF", "USD", 2);
         Money result = bank.reduce(Money.franc(2), "USD");
         assertEquals(Money.dollar(1), result);
+    }
+
+    @Test
+    public void testIdentityRate() {
+        assertEquals(1, new Bank().rate("USD", "USD"));
     }
 }
