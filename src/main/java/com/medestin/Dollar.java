@@ -1,6 +1,7 @@
 package com.medestin;
 
 public class Dollar extends Money {
+    private String currency = "USD";
 
     public Dollar(int amount){
         this.amount = amount;
@@ -8,9 +9,5 @@ public class Dollar extends Money {
 
     Money times(int multiplier){
         return new Dollar(amount*multiplier);
-    }
-
-    String currency(){
-        return "USD";
     }
 }
