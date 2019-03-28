@@ -1,10 +1,10 @@
 package com.medestin;
 
 public class Franc extends Money{
-    private String currency = "CHF";
 
-    public Franc(int amount){
+    public Franc(int amount, String currency){
         this.amount = amount;
+        this.currency = "CHF";
     }
 
     Money times(int multiplier){
