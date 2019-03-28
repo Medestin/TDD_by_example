@@ -85,6 +85,7 @@ public class MainTestSuite {
         assertEquals(Money.dollar(10), result);
     }
 
+    @Test
     public void testSumPlusMoney(){
         Expression fiveBucks = Money.dollar(5);
         Expression tenFrancs = Money.franc(10);
