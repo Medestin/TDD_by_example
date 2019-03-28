@@ -14,7 +14,7 @@ public class Bank {
     }
 
     int rate(String from, String to){
-        return (int) rates.get(new Pair(from, to));
+        return from.equals(to) ? 1 : (int) rates.get(new Pair(from, to));
     }
 
 
